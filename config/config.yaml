@@ -1,0 +1,32 @@
+
+model:
+  type: bilstm_self_attention
+  hidden_size: 128
+  input_size: 150
+  dropout: 0.0
+  num_classes: 2
+  num_stacked_layers: 1
+  heads: 1
+  drop_prob: 0.3
+  trained: True
+
+
+training:
+  batch_size: 500
+  learning_rate: 0.003
+  epochs: 15
+  optimizer: adam
+  loss_function: BCE
+  sequence_length: 20
+
+path:
+  train_path: './data/processed/train.csv'
+  test_path: './data/processed/test.csv'
+  word2vec_model_path: 'models/hatred_prime_600k/word2vec_600k.model'
+  devansh: 'data/raw/data_huang_devansh.csv'
+  goldbeck: 'data/raw/onlineHarassmentDataset.tdf'
+  reddit: 'data/raw/HateSpeechDetection.csv'
+
+gpu:
+  device: cuda
+  multi_gpu: False

@@ -1,0 +1,12 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual Environment
+venv/
+.venv/
+
+# Data Files (adjust as needed)
+data/ 
+datasets/ 
