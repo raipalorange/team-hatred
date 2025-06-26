@@ -1,7 +1,8 @@
 import numpy as np
 import torch
+from utils.data_loader import create_data_loader
 
-from ..utils.data_loader import create_data_loader
+
 
 
 def accuracy(pred, label):
@@ -18,7 +19,7 @@ def train_loop(model,config,train_loader,optimizer,criterion):
   for inputs, labels in train_loader:
     inputs, labels = inputs.to(config['gpu']['device']), labels.to(config['gpu']['device'])
 
-    outputs, h = model(inputs)
+    outputs, h = model(inputs, config)
     loss = criterion(outputs, labels) 
 
     optimizer.zero_grad()

@@ -1,7 +1,8 @@
-from ..data.datasets import TextDataset
+
 import pandas as pd
 from datasets import load_dataset
 from torch.utils.data import DataLoader
+from utils.custom_dataset import TextDataset
 
 def get_combined_df(config):
 

@@ -1,6 +1,6 @@
        
 from gensim.models import Word2Vec   
-from ..utils.data_loader_embeddings import get_combined_dataset
+from utils.data_loader_embeddings import get_combined_dataset
 
 def hatred_prime_train(config):
 

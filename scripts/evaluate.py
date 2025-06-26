@@ -2,18 +2,9 @@
 import torch 
 import torch.nn as nn
 import numpy as np
-from ..utils.data_loader import create_data_loader
+from utils.data_loader import create_data_loader
 
-def create_criterion(config):
-    loss_type = config['training'].get('loss_function', 'cross_entropy')
-    
-    if loss_type == 'CE':
-        return nn.CrossEntropyLoss()
-   
-    elif loss_type == 'BCE':
-        return nn.BCELoss()
-    else:
-        raise ValueError(f"Unsupported loss function: {loss_type}")
+from utils.criterion import create_criterion
     
 
 
@@ -26,7 +17,7 @@ def evaluate(model, config):
   model.eval()
   test_accuracy = 0.0
   test_losses = []
-  _,test_loader = create_data_loader()
+  _,test_loader = create_data_loader(config)
   criterion = create_criterion(config)
 
 
@@ -34,7 +25,7 @@ def evaluate(model, config):
     for inputs, labels in test_loader:
       inputs, labels = inputs.to(config['gpu']['device']), labels.to(config['gpu']['device'])
 
-      outputs, _ = model(inputs)
+      outputs, _ = model(inputs,config)
       loss = criterion(outputs, labels)
 
       test_losses.append(loss.item())

@@ -10,3 +10,5 @@ venv/
 # Data Files (adjust as needed)
 data/ 
 datasets/ 
+/test.ipynb
+.DS_Store

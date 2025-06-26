@@ -9,7 +9,7 @@ nltk.download('punkt_tab')
 import string
 import torch                             
 from gensim.models import Word2Vec  
-from ..models.hatred_prime import hatred_prime_train        
+from models.hatred_prime import hatred_prime_train        
 
 
 
