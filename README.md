@@ -46,7 +46,7 @@ python main.py
 ## Installation
 ```bash
 # Clone the repository
-git clone [your-repo-url]
+git clone https://github.com/raipalorange/team-hatred.git
 cd hate-speech-detection
 
 # Install dependencies
